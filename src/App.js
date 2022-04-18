@@ -1,5 +1,3 @@
-
-   
 import { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
@@ -7,7 +5,7 @@ import './App.css';
 
 function App() {
   const [date, setDate] = useState(new Date());
-  let arr = []
+  const [contactDays, setContactDays] = useState([])
 
   return (
     <div className='app'>
@@ -19,24 +17,18 @@ function App() {
       <Calendar 
         onChange={setDate} 
         value={date} 
-        onClickDay={
-          // (day, value, event) => {
-          //   console.log("date", date)
-          //   arr.map(date => new Date(date))
-          //   console.log(day, value.target, this)
-          //   console.log(arr)
-          // }
-          ({ activeStartDate, date, view }) => view === 'month' && date.getDay() === 3 ? 'wednesday' : console.log('not wed', activeStartDate)
-
+        onClickDay={ date => setContactDays([...contactDays, date.toDateString()])
         } 
-        // titleClassName={
-        // }
-        />
+        // titleClassName={}
+      />
       </div>
       <p className='text-center my-4'>
-        <span className='bold'>Selected Date:</span>{' '}
-        {date.toDateString()}
+        <span className='bold'>Selected Date:</span> {date.toDateString()}
       </p>
+      <p className="text-center">{contactDays.length}</p>
+      <ul>
+        {contactDays.map(day => <li>{day}</li>)}
+      </ul>
       </div>
       </div>
     </div>
