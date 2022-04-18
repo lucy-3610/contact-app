@@ -12,26 +12,26 @@ function App() {
       <div className='container'>
         <div className='row justify-content-center'>
           <div className='col-lg-6'>
-      <h1 className='text-center mt-5 mb-4'>React Calendar</h1>
-      <div className='calendar-container d-flex justify-content-center'>
-      <Calendar 
-        onChange={setDate} 
-        value={date} 
-        onClickDay={ date => setContactDays([...contactDays, date.toDateString()])
-        } 
-        // titleClassName={}
-      />
+            <h1 className='text-center mt-5 mb-4'>React Calendar</h1>
+            <div className='calendar-container d-flex justify-content-center'>
+              <Calendar 
+                onChange={setDate} 
+                value={date} 
+                onClickDay={ date => setContactDays([...contactDays, date.toDateString()])
+                } 
+                // titleClassName={}
+              />
+            </div>
+            <p className='text-center my-4'>
+              <span className='bold'>Selected Date:</span> {date.toDateString()}
+            </p>
+            <p className="text-center">{contactDays.length}</p>
+            <ul>
+              {contactDays.map(day => <li>{day}</li>)}
+            </ul>
+          </div>
+        </div>
       </div>
-      <p className='text-center my-4'>
-        <span className='bold'>Selected Date:</span> {date.toDateString()}
-      </p>
-      <p className="text-center">{contactDays.length}</p>
-      <ul>
-        {contactDays.map(day => <li>{day}</li>)}
-      </ul>
-      </div>
-      </div>
-    </div>
     </div>
   );
 }
