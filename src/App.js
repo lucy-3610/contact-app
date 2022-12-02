@@ -32,7 +32,7 @@ function App() {
             </p>
             <p className="text-center">{contactDays.length}</p>
             <ul>
-              {contactDays.map(day => <li>{day}</li>)}
+              {contactDays.map(day => <li key={day}>{day}</li>)}
             </ul>
           </div>
         </div>
