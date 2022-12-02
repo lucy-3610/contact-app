@@ -28,7 +28,7 @@ const ContactCalendar = () => {
                     <p className='text-center mt-4 mb-2'>Total Days:</p>
                     <p className="text-center">{contactDays.length}</p>
                     <ul>
-                    {contactDays.map(day => <li>{day}</li>)}
+                    {contactDays.map(day => <li key={day}>{day}</li>)}
                     </ul>
                 </div>
             </div>
